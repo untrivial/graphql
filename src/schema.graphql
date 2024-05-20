@@ -1,0 +1,32 @@
+
+type Query {
+    "Featured playlists to display on homepage"
+    featuredPlaylists: [Playlist!]!,
+    playlist(id: ID!): Playlist,
+}
+
+"A curated collection of tracks designed for a specific actvitiy or mood."
+type Playlist {
+    "ID for playlist"
+    id: ID!
+    "name of playlist"
+    name: String!
+    "description of playlist"
+    description: String
+    "The tracks of the playlist"
+    tracks: [Track!]!
+}
+
+"A single audio file, usually a song."
+type Track {
+  "The ID for the track."
+  id: ID!
+  "The name of the track"
+  name: String!
+  "The track length in milliseconds."
+  durationMs: Int!
+  "Whether or not the track has explicit lyrics (true = yes it does; false = no it does not OR unknown)"
+  explicit: Boolean!
+  "The URI for the track, usually a Spotify link."
+  uri: String!
+}
